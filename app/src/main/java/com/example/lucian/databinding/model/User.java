@@ -6,8 +6,19 @@ package com.example.lucian.databinding.model;
 
 public class User {
 
-    public String userName = "Lucian";
+    public String userName;
 
-    public String passWord = "123456";
+    public String passWord;
+
+    public String gender;
+
+    public User(){
+
+        userName = "Lucian";
+
+        passWord = "123456";
+
+        gender = "";
+    }
 
 }

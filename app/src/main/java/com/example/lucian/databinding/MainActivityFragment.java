@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.example.lucian.databinding.databinding.FragmentMainBinding;
 import com.example.lucian.databinding.model.User;
+import com.example.lucian.databinding.presenter.MainPresenter;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -25,6 +26,8 @@ public class MainActivityFragment extends Fragment {
         FragmentMainBinding fragmentMainBinding = DataBindingUtil.bind(view);
         User user = new User();
         fragmentMainBinding.setUser(user);
+        MainPresenter presenter = new MainPresenter();
+        fragmentMainBinding.setPresenter(presenter);
         return view;
     }
 }

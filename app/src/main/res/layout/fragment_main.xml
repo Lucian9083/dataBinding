@@ -6,9 +6,13 @@
     >
     <data>
         <import type="com.example.lucian.databinding.model.User"/>
+        <import type="com.example.lucian.databinding.presenter.MainPresenter"/>
         <variable
             name="user"
             type="User"/>
+        <variable
+            name="presenter"
+            type="MainPresenter"/>
     </data>
     <RelativeLayout
 
@@ -36,16 +40,42 @@
             android:layout_marginBottom="4dp"
             android:inputType="textVisiblePassword"
             android:layout_below="@id/user_name"
+            android:text="@{user.passWord}"
             android:hint="@string/label_password"/>
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password"
+            android:text="@{@string/gender(user.gender)}"/>
 
         <Button
             android:id="@+id/button"
-            android:layout_below="@id/password"
+            android:layout_below="@id/gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
-            android:text="@string/button_switch"/>
+            android:text="@string/button_switch"
+            android:onClick="@{presenter.onCommitClick}"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onCheckedChanged="@{(radioGroup,index) -> presenter.onCheckedChanged(radioGroup,index,user)}"
+            android:layout_below="@+id/button">
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_button_male"/>
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_button_female"/>
+        </RadioGroup>
 
     </RelativeLayout>
 </layout>
