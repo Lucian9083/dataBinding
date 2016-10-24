@@ -1,5 +1,7 @@
 package com.example.lucian.databinding.model;
 
+import android.databinding.ObservableField;
+
 /**
  * Created by lvzheng on 16/10/21.
  */
@@ -10,7 +12,7 @@ public class User {
 
     public String passWord;
 
-    public String gender;
+    public final ObservableField<String> gender = new ObservableField<>();
 
     public User(){
 
@@ -18,7 +20,7 @@ public class User {
 
         passWord = "123456";
 
-        gender = "";
+        gender.set("");
     }
 
 }

@@ -26,14 +26,14 @@ public class MainPresenter {
         }
         switch (var1.getCheckedRadioButtonId()){
             case R.id.male:
-                user.gender = "male";
+                user.gender.set("male");
                 break;
             case R.id.female:
-                user.gender = "female";
+                user.gender.set("female");
                 break;
             default:
-                user.gender = "male";
+                user.gender.set("male");
         }
-        Log.i(TAG,var2+user.gender);
+        Log.i(TAG,var2+user.gender.get());
     }
 }

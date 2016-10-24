@@ -1,11 +1,12 @@
 package com.example.lucian.databinding;
 
 import android.databinding.DataBindingUtil;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.lucian.databinding.databinding.FragmentMainBinding;
 import com.example.lucian.databinding.model.User;
@@ -29,5 +30,12 @@ public class MainActivityFragment extends Fragment {
         MainPresenter presenter = new MainPresenter();
         fragmentMainBinding.setPresenter(presenter);
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        Toast.makeText(getContext(), "Hello I'm a starting task!" , Toast.LENGTH_SHORT).show();
     }
 }
